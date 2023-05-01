@@ -19,6 +19,10 @@
    {
      "resourceType": "function-app",
      "pipelineID": "5"
+   },
+   {
+     "resourceType": "test-app",
+     "pipelineID": "0808"
    }
    ]
 }
