@@ -1,0 +1,442 @@
+{
+    "version":[
+        {
+            "versionNumber":"1.0.2",
+            "releaseDate":""
+        },
+        {
+            "versionNumber":"1.0.1",
+            "releaseDate":""
+        }
+    ],
+    "resources":[
+        {
+			"resourceName": "resourceGroup-2",
+            "properties": {
+					"Cloud":"Azure"
+					"resourceType":"storage-account",
+					"name":"",
+					"location":"",
+				}
+			"tags":"",
+			},
+		{
+            "resourceName": "Event_Grid",
+            "dependencies":[
+                {
+                  "name": "Event_Hub",
+                  "namespace_name": "",
+                  "partition_count": "",
+                  "capture_description": {
+                    "enabled": "",
+                    "encoding": "",
+                    "destination": {
+                      "dest_name": "",
+                      "archive_name_format": "",
+                      "blob_container_name": "",
+                      "storage_account_id": "",
+                      "tags":{}  
+                    }
+                  } 
+                },
+                {
+                  "Name": "EventGrid_Topic",
+                  "resourceGroup":"",
+                  "location": "",
+                  "identity": {
+                    "type": "",
+                    "identity_ids": "" 
+                  },
+                  "input_mapping_fields": {
+                    "id": "",
+                    "topic": "",
+                    "event_type": "",
+                    "event_time": "",
+                    "data_version": "",
+                    "subject": ""
+                  },
+                  "inbound_ip_rule": {
+                    "ip_mask": ""
+                  }
+                  "tags":{}  
+                },
+              {
+                "Name": "azurerm_eventgrid_domain",
+                  "resourceGroup":"",
+                  "location": "",
+                  "identity": {
+                  "type": ""
+                   },
+                  "inbound_ip_rule": {
+                  "ip_mask": ""
+                }  
+                },
+              {
+                "Name": "azurerm_eventgrid_event_subscription",
+                "name": "",
+                "scope": "",
+                "storage_queue_endpoint": {
+                  "storage_account_id": "",
+                  "queue_name": ""
+                },
+                "azure_function_endpoint": {
+                  "function_id": ""
+                },
+                "webhook_endpoint": {
+                  "URL": "",
+                  "base_url": ""
+                },
+                "delivery_identity": {
+                  "type": "" 
+                },
+                "delivery_property": {
+                  "header_name": "",
+                  "type": ""  
+                }
+              }
+            ]
+        },
+		{
+            "resourceName":"storage-account",
+            "properties":{
+                    "cloud":"Azure",
+                    "name":"",
+                    "resourceGroupName":"",
+                    "location":"",
+                    "edgeZone":"",   
+                    "accountKind":"",
+                    "accountTier":"",
+                    "accessTier":"",
+                    "accountRepliationType":"",
+                    "corsRule":{
+                        "allowedOrigins":[""],
+                        "allowedMethods":[""],
+                        "allowedHeaders":[""],
+                        "exposedHeaders":[""],
+                        "maxAgeInSeconds":"3600"
+                    },
+                    "tags":{}
+                },
+            "blob_container":[
+                {
+                    "containerName":"",
+                    "properties":{
+                        "storage_account_name":"",
+                        "containerAccessType":""
+                    }
+                }
+			},
+		{
+		"resourceName":"Event_Hub",
+		"dependencies":[
+          {
+               "Name":"namespace",       
+               "namespace_name":"",
+               "location":"",
+               "resource_group_name":"",
+               "sku":"",
+               "capacity":"",
+               "auto_inflate_enabled":"",
+               "identity": {
+               "maximum_throughput_units":"",
+               "zone_redundant":""
+               },
+               "identity_type":"",
+               "network_rulesets": {
+                    "default_action":"",
+                    "public_network_access_enabled":"",
+                    "trusted_service_access_enabled":"",
+                    "local_authentication_enabled":"",
+                    "minimum_tls_version":""
+               },                         
+               "virtual_network_rule": {
+                    "subnet_id":"",
+                    "ignore_missing_virtual_network_service_endpoint":""
+               },
+               "ip_rule": {
+                    "ip_mask":"",
+                    "action":""         
+               },
+               "tags": {
+                    "environment" :"Production"
+               }
+               },       
+          
+          {
+               "Name":"eventhub",
+               "name":"",
+               "namespace_name":"",
+               "resource_group_name":"",
+               "partition_count":"", 
+               "message_retention":"", 
+               "capture_description": {
+                    "enabled": "",
+                    "encoding": "",
+                    "interval_in_seconds": "",
+                    "archive_name_format": "",
+                    "size_limit_in_bytes": "",
+                    "skip_empty_archives": "",
+                    "destination": {
+                    "dest_name": "",
+                    "archive_name_format": "",
+                    "blob_container_name": "",
+                    "storage_account_id": "",  
+                    "tags": {
+                         "environment" :"Production"                    
+                         }  
+                    }
+          }                  
+          },
+		{
+            "resourceName":"azurerm_service_plan",
+            "properties":[
+                {
+                    "cloud":"Azure",
+                    "resourceGroupName":"",
+                    "location":"",
+                    "os_type":"",
+                    "kind":"",
+                    "sku_name":"",
+                    "pricing_plan":"",
+                    "instance_count":"",
+                    "tags":"",
+                    "zone_redundant":"",
+                    "instance_size":"",
+                    "app_service_environment_id":"",
+                    "maximum_elastic_worker_count":"",
+                    "worker_count":"",
+                    "per_site_scaling_enabled":"",
+                    "zone_balancing_enabled":"",
+                    "timeouts":{
+                        "create":"",
+                        "delete":"",
+                        "update":"",
+                        "read":""
+                    }
+
+                }
+            ]
+        },
+		{
+            "resourceName":"function-app-1",
+            "properties":{
+                "cloud":"Azure",
+                "resourceType":"function-app",
+                "location":"",
+                "resourceGroup":"",
+                "appServicePlan":"",
+                "enabled":"true",
+                "appSettings":{},
+                "os_type":"",
+                "connectionString":{},
+                "tags":{}
+            },
+            "dependencies":[
+                {
+                    "name":"storage-account-1",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"storage-account",
+                        "resourceGroup":"",
+                        "accountKind":"",
+                        "accountTier":"",
+                        "accessTier":"",
+                        "accountRepliationType":"",
+                        "corsRule":{
+                            "allowedOrigins":[],
+                            "allowedMethods":[],
+                            "allowedHeaders":[],
+                            "exposedHeaders":[],
+                            "maxAgeInSeconds":"3600"
+                        },
+                        "tags":{}
+                    }
+                },
+                {
+                    "name":"app-service-plan-1",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"app-service-plan",
+                        "location":"",
+                        "kind":"",
+                        "resourceGroup":"",
+                        "skuName":"",
+                        "timeouts":{
+                            "create":"",
+                            "delete":"",
+                            "update":"",
+                            "read":""
+                        },
+                        "maximumElasticWorkerCount":"",
+                        "tags":{}
+                    }
+                }
+            ]
+        },
+        {
+            "resourceName":"function-app-2",
+            "properties":{
+                "cloud":"Azure",
+                "resourceType":"function-app",
+                "location":"",
+                "resourceGroup":"",
+                "appServicePlan":"",
+                "enabled":"true",
+                "appSettings":{},
+                "os_type":"",
+                "connectionString":{},
+                "tags":{}
+            },
+            "dependencies":[
+                {
+                    "name":"storage-account-2",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"storage-account",
+                        "accountKind":"",
+                        "accountTier":"",
+                        "accessTier":"",
+                        "accountRepliationType":"",
+                        "corsRule":{
+                            "allowedOrigins":[],
+                            "allowedMethods":[],
+                            "allowedHeaders":[],
+                            "exposedHeaders":[],
+                            "maxAgeInSeconds":"3600"
+                        },
+                        "tags":{}
+                    }
+                },
+                {
+                    "name":"app-service-plan-2",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"app-service-plan",
+                        "location":"",
+                        "kind":"",
+                        "resourceGroup":"",
+                        "skuName":"",
+                        "timeouts":{
+                            "create":"",
+                            "delete":"",
+                            "update":"",
+                            "read":""
+                        },
+                        "maximumElasticWorkerCount":"",
+                        "tags":{}
+                    }
+                }
+            ]
+        },
+        {
+            "resourceName":"function-app-3",
+            "properties":{
+                "cloud":"Azure",
+                "resourceType":"function-app",
+                "location":"",
+                "resourceGroup":"",
+                "appServicePlan":"",
+                "enabled":"true",
+                "appSettings":{},
+                "os_type":"",
+                "connectionString":{},
+                "tags":{}
+            },
+            "dependencies":[
+                {
+                    "name":"storage-account-3",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"storage-account",
+                        "accountKind":"",
+                        "accountTier":"",
+                        "accessTier":"",
+                        "accountRepliationType":"",
+                        "corsRule":{
+                            "allowedOrigins":[],
+                            "allowedMethods":[],
+                            "allowedHeaders":[],
+                            "exposedHeaders":[],
+                            "maxAgeInSeconds":"3600"
+                        },
+                        "tags":{}
+                    }
+                },
+                {
+                    "name":"app-service-plan-3",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"app-service-plan",
+                        "location":"",
+                        "kind":"",
+                        "resourceGroup":"",
+                        "skuName":"",
+                        "timeouts":{
+                            "create":"",
+                            "delete":"",
+                            "update":"",
+                            "read":""
+                        },
+                        "maximumElasticWorkerCount":"",
+                        "tags":{}
+                    }
+                }
+            ]
+        },
+        {
+            "resourceName":"function-app-4",
+            "properties":{
+                "cloud":"Azure",
+                "resourceType":"function-app",
+                "location":"",
+                "resourceGroup":"",
+                "appServicePlan":"",
+                "enabled":"true",
+                "appSettings":{},
+                "os_type":"",
+                "connectionString":{},
+                "tags":{}
+            },
+            "dependencies":[
+                {
+                    "name":"storage-account-4",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"storage-account",
+                        "accountKind":"",
+                        "accountTier":"",
+                        "accessTier":"",
+                        "accountRepliationType":"",
+                        "corsRule":{
+                            "allowedOrigins":[],
+                            "allowedMethods":[],
+                            "allowedHeaders":[],
+                            "exposedHeaders":[],
+                            "maxAgeInSeconds":"3600"
+                        },
+                        "tags":{}
+                    }
+                },
+                {
+                    "name":"app-service-plan-4",
+                    "properties":{
+                        "cloud":"Azure",
+                        "resourceType":"app-service-plan",
+                        "location":"",
+                        "kind":"",
+                        "resourceGroup":"",
+                        "skuName":"",
+                        "timeouts":{
+                            "create":"",
+                            "delete":"",
+                            "update":"",
+                            "read":""
+                        },
+                        "maximumElasticWorkerCount":"",
+                        "tags":{}
+                    }
+                }
+            ]
+        }
+    ]
+}
