@@ -1,24 +1,24 @@
 {
-  "resources": [
-    {
-        "resourceType": "storage-account",
-        "pipelineID": "7"
-    },
-    {
-        "resourceType": "app-service-plan",
-        "pipelineID": "8"
-    },
-    {
-        "resourceType": "event-hub",
-        "pipelineID": "4"
-    },
-    {
-        "resourceType": "event-grid-topic",
-        "pipelineID": "6"
-    },
-    {
-        "resourceType": "function-app",
-        "pipelineID": "5"
-    }
-    ]
+  "resources": [
+   {
+     "resourceType": "storage-account",
+     "pipelineID": "7"
+   },
+   {
+     "resourceType": "app-service-plan",
+     "pipelineID": "8"
+   },
+   {
+  "resourceType": "event-hub",
+  "pipelineID": "4"
+   },
+   {
+  "resourceType": "event-grid-topic",
+  "pipelineID": "6"
+   },
+   {
+  "resourceType": "function-app",
+  "pipelineID": "5"
+   }
+   ]
 }
