@@ -12,7 +12,7 @@
    },
    {
      "resourceType": "event-hub",
-     "pipelineID": "4",
+     "pipelineID": "14",
      "organization": "hershal8090gupta"
    },
    {
@@ -23,11 +23,6 @@
    {
      "resourceType": "function-app",
      "pipelineID": "5",
-     "organization": "hershal8090gupta"
-   },
-   {
-     "resourceType": "test-app",
-     "pipelineID": "0808",
      "organization": "hershal8090gupta"
    }
    ]
