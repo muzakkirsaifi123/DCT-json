@@ -2,27 +2,33 @@
   "resources": [
    {
      "resourceType": "storage-account",
-     "pipelineID": "7"
+     "pipelineID": "7",
+     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "app-service-plan",
-     "pipelineID": "8"
+     "pipelineID": "8",
+     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "event-hub",
-     "pipelineID": "4"
+     "pipelineID": "4",
+     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "event-grid-topic",
-     "pipelineID": "6"
+     "pipelineID": "6",
+     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "function-app",
-     "pipelineID": "5"
+     "pipelineID": "5",
+     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "test-app",
-     "pipelineID": "0808"
+     "pipelineID": "0808",
+     "organization": "hershal8090gupta"
    }
    ]
 }
