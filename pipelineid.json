@@ -3,27 +3,22 @@
    {
      "resourceType": "storage-account",
      "pipelineID": "19",
-     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "app-service-plan",
      "pipelineID": "16",
-     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "event-hub",
      "pipelineID": "18",
-     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "event-grid-topic",
      "pipelineID": "17",
-     "organization": "hershal8090gupta"
    },
    {
      "resourceType": "function-app",
      "pipelineID": "5",
-     "organization": "hershal8090gupta"
    }
    ]
 }
